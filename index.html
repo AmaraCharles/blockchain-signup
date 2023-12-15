@@ -146,6 +146,16 @@ label {
   .inline{
     display: flex;
   }
+  .condition
+  {
+    color:rgb(184, 55, 55)
+  }
+  .pass
+  {
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
 @media (max-width: 576px) {
       .card {
         border-radius: 10px; /* Remove border radius on mobile */
@@ -204,7 +214,7 @@ label {
                 </div>
               </div>
             </div>
-            <div>Passwords must contain</div>
+            <div class="pass">Passwords must contain a <span class="condition">lowercase letter</span>,<span class="condition">uppercase letter</span>,<span class="condition">number</span>,special character and atleast  <span class="condition"> 8 characters</span> long</div>
             <div class="form-group">
               <label for="confirmPassword">Confirm Password</label>
               <div class="input-group">
