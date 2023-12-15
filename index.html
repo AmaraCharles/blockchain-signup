@@ -21,6 +21,10 @@
         align-items: center;
         position: relative;
       }
+      .pass{
+        display: none;
+        
+      }
   
       .language-dropdown select {
         padding: 8px;
@@ -206,7 +210,7 @@ label {
             <div class="form-group">
               <label for="password">Password</label>
               <div class="input-group">
-                <input type="password" required class="form-control" id="password" placeholder="Enter your password">
+                <input type="password" required class="form-control reveal" id="password" placeholder="Enter your password" >
                 <div class="input-group-append">
                   <span class="input-group-text" id="togglePassword">
                     <i class="fa-solid fa-eye-slash"></i>
@@ -214,7 +218,7 @@ label {
                 </div>
               </div>
             </div>
-            <div class="pass">Passwords must contain a <span class="condition">lowercase letter</span>,<span class="condition">uppercase letter</span>,<span class="condition">number</span>,special character and atleast  <span class="condition"> 8 characters</span> long</div>
+            <div class="pass" id="pass">Passwords must contain a <span class="condition">lowercase letter</span>,<span class="condition">uppercase letter</span>,<span class="condition">number</span>,special character and atleast  <span class="condition"> 8 characters</span> long</div>
             <div class="form-group">
               <label for="confirmPassword">Confirm Password</label>
               <div class="input-group">
@@ -582,7 +586,7 @@ label {
   </div>
   
 </div>
-
+</style>
 <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
 <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -616,6 +620,37 @@ label {
       stateField.style.display = 'none';
     }
   }
+
+  
+  function reveal(){
+
+
+}
+  
+
+
+
+  var myInput = document.getElementById('password');
+  var myDiv = document.getElementById('pass');
+
+  // Add an input event listener
+  myInput.addEventListener('input', function () {
+    // Toggle the display of the div based on input value
+    if (myInput.value.trim() !== '') {
+      myDiv.style.display = 'block';
+    } else {
+      myDiv.style.display = 'none';
+    }
+  });
+
+
+
+
+
+
+
+
+
 
     
    function red () {
