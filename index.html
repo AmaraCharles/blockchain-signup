@@ -728,6 +728,18 @@ document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     time: 1000, // Duration in milliseconds
   });
    }
+
+   var specificInput = document.getElementById('password');
+var myDiv = document.getElementById('pass');
+
+specificInput.addEventListener('input', function () {
+  if (specificInput.value.trim() !== '') {
+    myDiv.style.display = 'block';
+  } else {
+    myDiv.style.display = 'none';
+  }
+});
+
            $('#signupForm').submit(function (e) {
                e.preventDefault(); // prevents page reload
                blurr();
