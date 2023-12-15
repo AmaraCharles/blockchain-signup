@@ -597,22 +597,17 @@ label {
 
 <script>
    function toggleStateField() {
-    var countrySelect = document.getElementById('country');
+    var country = document.getElementById('country');
     var stateField = document.getElementById('stateField');
 
-    if (countrySelect.value.toLowerCase() === 'united states') {
+    if (country.value.toLowerCase() === 'united states') {
       stateField.style.display = 'block';
     } else {
       stateField.style.display = 'none';
     }
   }
 
-  // document.getElementById('myForm').addEventListener('submit', function (e) {
-  //   e.preventDefault();
-  //   // Handle form submission here
-  //   alert('Form submitted!');
-  // });
-    var btn=document.getElementById('registerBtn');
+    
    function red () {
     var btn=document.getElementById("btn")
            btn.style="opacity:1"
@@ -623,14 +618,8 @@ label {
 document.body.scrollTop = 0; // For Safari
 document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
-const state=document.getElementById("stateholder")
-state.style.display="none"
-var country=document.getElementById("country")
-               if(country.value="Nigeria"){
-                alert(country.value)
-                state.style.display="block"
-               }           
-   
+
+                  
    function blurr (){
        var btn=document.getElementById("btn")
        btn.style="opacity:0.5"
@@ -669,7 +658,7 @@ var country=document.getElementById("country")
              
               //  const firstName = $('#firstname').val();
               //  const lastName = $('#lastname').val();
-              const state=document.getElementById("state")
+              const state=document.getElementById("state").value
                const email = $('#email').val();
                const password = $('#password').val();
                const country = $('#country').val();
