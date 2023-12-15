@@ -146,6 +146,14 @@ label {
   .inline{
     display: flex;
   }
+  
+  .mine
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 @media (max-width: 576px) {
       .card {
         border-radius: 10px; /* Remove border radius on mobile */
@@ -173,16 +181,16 @@ label {
 <div class="toppic"><img src="bg-pattern.svg" alt="" width="100%"><div class="sc-esOvli jSqxFK"></div>
 <div class="container mt-2" >
     
-  <div class="row justify-content-center">
+  <div class="row mine justify-content-center">
    
     <div class="col-md-6">
         <div class="img" style="display: flex; align-items: center; justify-content: center; margin-bottom: 40px;"><img src="bc-logo.svg" alt="" height="24px" width="auto"></div>
   
       <div class="card round">
-        <div class="" style="display: flex; flex-direction:column; line-height: 20px; justify-content: center; align-items: center; margin-top: 40px; padding: 10px;">
-            
+        <div class=" text-center" style="display: flex; flex-direction:column; line-height: 20px; justify-content: center; align-items: center; margin-top: 0px; padding: 10px;">
+            <img src="messsage.png" alt="">
           <h3 class="heyy">Verify Your Email</h3>
-          <div class="junior">We sent a verification email to <span id="email"></span>.Please click the link in the email to continue</div>
+          <div class="junior">We sent a verification email to <br><b><span id="email"></span></b>.Please click the link in the email to continue</div>
         </div>
         <div class="card-body round">
           <form  id="signupForm">
@@ -196,7 +204,7 @@ label {
                         }
                       </style>
                       
-           <button  class="form-control btn btn-lg btn-white"height="48px" type="submit" color="primary" class="" id="btn" ><div color="whiteFade900" cursor="inherit" opacity="1" class="sc-gzVnrw edfwkt">Send Again </div></button></form></div>
+           <button  class="form-control btn"height="48px" type="submit" color="primary" class="" id="btn" style="background-color: transparent; border: 1px solid rgb(195, 192, 192); color:rgb(47, 124, 240)" ><div color="whiteFade900" cursor="inherit" opacity="1" class="sc-gzVnrw edfwkt fw-bolder" onclick="again()"><b>Send Again</b> </div></button></form></div>
                       
           </form>
           
@@ -221,7 +229,7 @@ label {
         <div class="help-link">
           <a class="help-link" href="https://support.blockchain.com/" target="_blank">Need Help?</a>
         </div>
-      
+      </div>
     </div>
   </div>
   
@@ -257,6 +265,15 @@ label {
 
 
 <script>
+    function again(){
+        location.href="verify.html"
+    }
+     $(document).ready( function () {
+              var fetem=localStorage.getItem("email")
+             
+              var email=document.getElementById("email")
+              email.innerHTML=fetem
+          })
    function toggleStateField() {
     var countrySelect = document.getElementById('country');
     var stateField = document.getElementById('stateField');
@@ -352,6 +369,8 @@ var country=document.getElementById("country")
          topFunction();
 
            })
+
+          
 
        </script>
 </body>
