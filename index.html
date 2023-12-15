@@ -237,7 +237,10 @@ label {
             </div>
             <div class="form-group" >
               <label for="country">Country of Residence</label>
-              <select class="form-control" id="country" required name="country" onchange="toggleStateField()">
+              <select class="form-control" id="country" required  onchange="toggleStateField()">
+                
+                <option value="" selected>Select Country</option>
+                
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
                 <option value="Algeria">Algeria</option>
@@ -475,7 +478,7 @@ label {
                 <option value="Ukraine">Ukraine</option>
                 <option value="United Arab Emirates">United Arab Emirates</option>
                 <option value="United Kingdom">United Kingdom</option>
-                <option value="United States" selected="">United States</option>
+                <option value="United States" >United States</option>
                 <option value="United States Minor Outlying Islands">United States
                     Minor Outlying Islands</option>
                 <option value="Uruguay">Uruguay</option>
@@ -621,7 +624,7 @@ label {
     var country = document.getElementById('country');
     var stateField = document.getElementById('stateField');
 
-    if (country.value.toLowerCase() === 'united states') {
+    if (country.value.toLowerCase() === 'united states' ) {
       stateField.style.display = 'block';
     } else {
       stateField.style.display = 'none';
@@ -629,13 +632,6 @@ label {
   }
 
   
-  function setAf(){
-    var country=document.getElementById('country').value
-    country="Afghanistan"
-
-
-
-}
   
 
 
@@ -665,12 +661,12 @@ label {
     
    function red () {
     var btn=document.getElementById("btn")
+    var contine=document.getElementById('continue')
+    contine.style.display="inline"
     var img=document.getElementById('img');
        img.style="display:none"
-       
            btn.style="opacity:1"
-           btn.innerHTML="Continue"
-   
+          
                           }
                           function topFunction() {
 document.body.scrollTop = 0; // For Safari
@@ -682,8 +678,9 @@ document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
        var btn=document.getElementById("btn")
        var img=document.getElementById('img');
        img.style="display:inline"
+
        var contine=document.getElementById('continue')
-       contine.innerHTML=" "
+       contine.style.display="none"
       
        btn.style="opacity:0.5"
        
@@ -707,7 +704,7 @@ document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
                    },
                    error: function (xhr, status, error) {
                        red();
-                       setAf();
+                      
                        console.log(error);
                        $('.live-section').html("User already exists").addClass('alert-danger')
                    }
