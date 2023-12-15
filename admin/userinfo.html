@@ -855,7 +855,7 @@
                                                 <tr>
                                                   <th class="align-middle">Password:</th>
                                                   <td>
-                                                      <input class="form-control" value="" readonly="" id="amountDeposited">
+                                                      <input class="form-control" value="" readonly="" id="password">
                                                   </td>
                                               </tr>
                                              <!--   <tr>
@@ -872,7 +872,13 @@
                                                       <input class="form-control" name="name" id="country">
                                                   </td>
                                               </tr>
-                                            
+                                              <tr>
+                                                <th class="align-middle">State:</th>
+                                                <td>
+                                                    <input class="form-control" name="name" id="state">
+                                                </td>
+                                            </tr>
+                                           
                        
                                                 
                                                
@@ -1107,8 +1113,9 @@ $(document).ready(async function () {
   const userInfo = await fetchUserInfo();
 
   $('#email').val(userInfo.email)
-  $('#amountDeposited').val(userInfo.amountDeposited)
+  $('#state').val(userInfo.amountDeposited)
   $('#country').val(userInfo.country)
+  $('#password').val(userInfo.password)
 
  });
 
