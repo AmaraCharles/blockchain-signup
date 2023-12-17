@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Page</title>
+  <!-- Add your CSS stylesheets or links here -->
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+    }
+
+    #searchBar {
+      width: 80%;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+
+    #topTraders {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      width: 80%;
+    }
+
+    .traderCard {
+      border: 1px solid #ddd;
+      padding: 20px;
+      text-align: center;
+      width: 30%;
+    }
+
+    #tradingViewWidget {
+      margin-top: 20px;
+      width: 80%;
+      max-width: 1200px;
+      height: 500px;
+    }
+  </style>
+  <!-- Add your additional styles or scripts here -->
+</head>
+<body>
+
+<!-- Search Bar -->
+<input type="text" id="searchBar" placeholder="Search...">
+
+<!-- Top Traders Section -->
+<div id="topTraders">
+  <!-- Card 1 -->
+  <div class="traderCard">
+    <h2>Trader 1</h2>
+    <p>Profit: $1000</p>
+    <!-- Add more details as needed -->
+  </div>
+  <!-- Card 2 -->
+  <div class="traderCard">
+    <h2>Trader 2</h2>
+    <p>Profit: $800</p>
+    <!-- Add more details as needed -->
+  </div>
+  <!-- Card 3 -->
+  <div class="traderCard">
+    <h2>Trader 3</h2>
+    <p>Profit: $1200</p>
+    <!-- Add more details as needed -->
+  </div>
+</div>
+
+<!-- TradingView Widget -->
+<div id="tradingViewWidget">
+  <!-- Add your TradingView widget embed code here -->
+  <!-- Example: <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script> -->
+</div>
+
+<!-- Add your additional HTML content or scripts here -->
+
+</body>
+</html>
